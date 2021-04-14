@@ -4,11 +4,11 @@
     <parent>
         <groupId>gov.nsa.datawave.microservice</groupId>
         <artifactId>datawave-microservice-parent</artifactId>
-        <version>1.8</version>
+        <version>1.8-fork</version>
         <relativePath />
     </parent>
     <artifactId>metadata-utils</artifactId>
-    <version>2.0.2-SNAPSHOT</version>
+    <version>2.0.2-fork-SNAPSHOT</version>
     <url>https://code.nsa.gov/datawave-metadata-utils</url>
     <licenses>
         <license>
@@ -17,11 +17,18 @@
         </license>
     </licenses>
     <scm>
-        <connection>scm:git:https://github.com/NationalSecurityAgency/datawave-metadata-utils.git</connection>
-        <developerConnection>scm:git:git@github.com:NationalSecurityAgency/datawave-metadata-utils.git</developerConnection>
+        <connection>scm:git:https://github.com/brianloss/datawave-metadata-utils.git</connection>
+        <developerConnection>scm:git:git@github.com:brianloss/datawave-metadata-utils.git</developerConnection>
         <tag>HEAD</tag>
-        <url>https://github.com/NationalSecurityAgency/datawave-metadata-utils</url>
+        <url>https://github.com/brianloss/datawave-metadata-utils</url>
     </scm>
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub OWNER Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/brianloss/datawave</url>
+        </repository>
+    </distributionManagement>
     <properties>
         <spotbugs.excludes.file>${project.basedir}/src/main/spotbugs/excludes.xml</spotbugs.excludes.file>
         <version.accumulo-utils>2.0.0</version.accumulo-utils>
@@ -90,18 +97,14 @@
     </dependencies>
     <repositories>
         <repository>
-            <!--
-                This repository is a temporary work-around until we can public artifacts to maven central.
-                This allows us to retrieve released microservice artifacts from our github repository.
-            -->
             <releases>
                 <enabled>true</enabled>
             </releases>
             <snapshots>
-                <enabled>false</enabled>
+                <enabled>true</enabled>
             </snapshots>
-            <id>datawave-github-mvn-repo</id>
-            <url>https://raw.githubusercontent.com/NationalSecurityAgency/datawave/mvn-repo</url>
+            <id>github</id>
+            <url>https://maven.pkg.github.com/brianloss/datawave</url>
         </repository>
     </repositories>
 </project>
